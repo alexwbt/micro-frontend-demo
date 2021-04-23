@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
 import styled from 'styled-components';
 import MicroContainer from './MicroContainer';
 
@@ -16,8 +16,8 @@ const App2 = () => <MicroContainer name="app-2" host="http://localhost:3002/" />
 const App = () => <BrowserRouter>
     <Fragment>
         <Header>
-            <a href="/app1">App1</a>
-            <a href="/app2">App2</a>
+            <Link to="/app1">App1</Link>
+            <Link to="/app2">App2</Link>
         </Header>
         <Switch>
             <Route exact path='/app1' component={App1} />
