@@ -9,7 +9,7 @@ const MicroContainer = ({ name, host }) => {
         script.onload = () => window.microFrontends[name].mount(current);
         script.async = true;
 
-        (async() => {
+        (async () => {
             const data = await fetch(`${host}asset-manifest.json`);
             const json = await data.json();
             script.src = `${host}${json.entrypoints[0]}`;
