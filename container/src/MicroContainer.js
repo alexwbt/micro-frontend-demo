@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-const MicroContainer = ({ name, host }) => {
+const MicroContainer = ({ name, origin }) => {
     const container = useRef(null);
 
     useEffect(() => {
@@ -14,10 +14,10 @@ const MicroContainer = ({ name, host }) => {
         };
 
         (async () => {
-            const data = await fetch(`${host}asset-manifest.json`);
+            const data = await fetch(new URL('/asset-manifest.json', origin).href);
             const json = await data.json();
             if (cancel) return;
-            script.src = `${host}${json.entrypoints[0]}`;
+            script.src = new URL(json.entrypoints[0], origin).href;
             document.body.appendChild(script);
         })();
 
@@ -28,7 +28,7 @@ const MicroContainer = ({ name, host }) => {
             if (window.microFrontends && window.microFrontends[name])
                 window.microFrontends[name].unmount(current);
         };
-    }, [name, host]);
+    }, [name, origin]);
 
     return <div ref={container}></div>;
 };

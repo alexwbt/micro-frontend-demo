@@ -10,8 +10,8 @@ const Header = styled.div`
     }
 `;
 
-const App1 = () => <MicroContainer name="app-1" host="http://localhost:3001/" />
-const App2 = () => <MicroContainer name="app-2" host="http://localhost:3002/" />
+const App1 = () => <MicroContainer name="app-1" origin="http://localhost:3001/" />
+const App2 = () => <MicroContainer name="app-2" origin="http://localhost:3002/" />
 
 const App = () => <BrowserRouter>
     <Fragment>
