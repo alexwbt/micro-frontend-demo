@@ -17,7 +17,7 @@ const MicroContainer = ({ name, origin }) => {
             const data = await fetch(new URL('/asset-manifest.json', origin).href);
             const json = await data.json();
             if (cancel) return;
-            script.src = new URL(json.entrypoints[0], origin).href;
+            script.src = new URL(json.files['main.js'], origin).href;
             document.body.appendChild(script);
         })();
 
