@@ -18,14 +18,14 @@ const App = () => <BrowserRouter>
     <Fragment>
         <Header>
             <Link to="/">Home</Link>
-            <Link to="/app1">App1</Link>
-            <Link to="/app2">App2</Link>
-            <Link to="/app3">App3</Link>
+            <Link to="/app1/app1">App1</Link>
+            <Link to="/app2/app1">App2</Link>
+            <Link to="/app3/app1">App3</Link>
         </Header>
         <Switch>
-            <Route exact path='/app1' component={App1} />
-            <Route exact path='/app2' component={App2} />
-            <Route exact path='/app3' component={App3} />
+            <Route path='/app1' component={App1} />
+            <Route path='/app2' component={App2} />
+            <Route path='/app3' component={App3} />
         </Switch>
     </Fragment>
 </BrowserRouter>;
